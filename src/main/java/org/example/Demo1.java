@@ -24,7 +24,7 @@ public class Demo1 extends BaseSqlApi{
                         " `pt` as proctime()," +
                         " et as to_timestamp_ltz(ts, 0)," +
                         " watermark for et as et - interval '3' second " +
-                        ")" + SQLUtil.getKafkaSourceSQL("test0",
+                        ")" + SQLUtil.getKafkaSourceSQL("test0","1",
                         "maxwell_xms_operation_t_mailitem")
         );
 
@@ -92,7 +92,7 @@ public class Demo1 extends BaseSqlApi{
                         " `pt` as proctime()," +
                         " et as to_timestamp_ltz(ts, 0)," +
                         " watermark for et as et - interval '3' second " +
-                        ")" + SQLUtil.getKafkaSourceSQL("test0",
+                        ")" + SQLUtil.getKafkaSourceSQL("test1","2",
                         "maxwell_xms_operation_t_mailitem_shipper_consignee")
         );
 
@@ -154,7 +154,7 @@ public class Demo1 extends BaseSqlApi{
                         " `pt` as proctime()," +
                         " et as to_timestamp_ltz(ts, 0)," +
                         " watermark for et as et - interval '3' second " +
-                        ")" + SQLUtil.getKafkaSourceSQL("test3",
+                        ")" + SQLUtil.getKafkaSourceSQL("test3","3",
                         "maxwell_xms_operation_t_mailitem_extend")
         );
 

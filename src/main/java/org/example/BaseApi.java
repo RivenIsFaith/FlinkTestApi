@@ -27,7 +27,7 @@ public abstract class BaseApi {
         // 1. 设置状态后端: 1. hashmap(默认) 2. rocksdb
         env.setStateBackend(new HashMapStateBackend());
         // 2. 开启 checkpoint
-        env.enableCheckpointing(30000);
+        env.enableCheckpointing(60000);
         // 3. 设置状态的一致性级别
         env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
         // 4. 设置 checkpoint 存储的目录
@@ -37,7 +37,7 @@ public abstract class BaseApi {
         // 6. 设置两个 checkpoint 之间的最小间隔. 如果这设置了, 则可以忽略setMaxConcurrentCheckpoints
         env.getCheckpointConfig().setMinPauseBetweenCheckpoints(500);
         // 7. 设置 checkpoint 的超时时间
-        env.getCheckpointConfig().setCheckpointTimeout(10000);
+        env.getCheckpointConfig().setCheckpointTimeout(600000);
         // 8. 当 job 被取消的时候, 存储从 checkpoint 的数据是否要删除
         env.getCheckpointConfig().setExternalizedCheckpointCleanup(RETAIN_ON_CANCELLATION);
         // 9. 开启非对齐检查点

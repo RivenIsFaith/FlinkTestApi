@@ -3,6 +3,7 @@ package org.example;
 public class SQLUtil {
     public static String getKafkaSourceSQL(
             String groupId,
+            String clientId,
             String topic,
             String... format
     ){
@@ -16,6 +17,7 @@ public class SQLUtil {
                 "  'topic' = '" + topic + "'," +
                 "  'properties.bootstrap.servers' = '172.20.0.230:9092,172.20.0.238:9092,172.20.0.239:9092'," +
                 "  'properties.group.id' = '" + groupId + "'," +
+                "  'properties.client.id' = '" + clientId + "'," +
                 "  'scan.startup.mode' = 'latest-offset'," +
                 ("json".equals(defaultFormat) ? " 'json.ignore-parse-errors' = 'true', " : "") +
                 "  'format' = '" + defaultFormat + "'" +
